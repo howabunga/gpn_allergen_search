@@ -61,16 +61,16 @@ end
 puts "There are now #{Delivery.count} deliveries in the database."
 
 flavor_hashes = [
-  { :name => "Vanilla Bean", :category => "Vanilla" },
-  { :name => "Vanilla Ice Cream", :category => "Vanilla" },
-  { :name => "Velocity Vanilla", :category => "Vanilla" },
-  { :name => "Extreme Milk Chocolate", :category => "Chocolate" },
-  { :name => "Double Rich Chocolate", :category => "Chocolate" },
-  { :name => "Chocolate Shake", :category => "Chocolate" },
-  { :name => "Turbo Chocolate", :category => "Chocolate" },
-  { :name => "Delicious Strawberry", :category => "Strawberry" },
-  { :name => "Supercharged Strawberry", :category => "Strawberry" },
-  { :name => "Strawberry Shake", :category => "Strawberry" },
+  { :name => "Vanilla Bean" },
+  { :name => "Vanilla Ice Cream" },
+  { :name => "Velocity Vanilla" },
+  { :name => "Extreme Milk Chocolate" },
+  { :name => "Double Rich Chocolate" },
+  { :name => "Chocolate Shake" },
+  { :name => "Turbo Chocolate" },
+  { :name => "Delicious Strawberry", },
+  { :name => "Supercharged Strawberry", },
+  { :name => "Strawberry Shake" },
 ]
 
 flavor_hashes.each do |flavor_hash|
