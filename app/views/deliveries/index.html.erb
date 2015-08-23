@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h1>
+    Delivery Types
+    <a href="/deliveries/new" class="btn btn-lg btn-success">New Type</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Name</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @deliveries.each do |delivery| %>
+      <tr>
+        <td><%= delivery.name %></td>
+        <td>
+          <a href="/deliveries/<%= delivery.id %>" class="btn btn-primary">Show</a>
+          <a href="/deliveries/<%= delivery.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_delivery/<%= delivery.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,73 @@
+<!-- Validation failure messages -->
+<% if @product.errors.any? %>
+  <% @product.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Product #<%= @product.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_product/<%= @product.id %>" method="post" enctype="multipart/form-data">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+    <!-- Label and input for image -->
+      <div class="form-group">
+        <label for="image" class="control-label">
+          Image
+        </label>
+        <input type="file" id="image" name="image" placeholder="Image" class="form-control">
+      </div>
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @product.name %>">
+      </div>
+
+      <!-- Label and input for brand_id -->
+      <div class="form-group">
+        <label for="brand_id" class="control-label">
+          Brand
+        </label>
+
+        <%= select_tag(:brand_id, options_from_collection_for_select(Brand.all, :id, :name, @product.brand_id), :class => "form-control") %>
+
+      </div>
+
+      <!-- Label and input for flavor_id -->
+      <div class="form-group">
+        <label for="flavor_id" class="control-label">
+          Flavor
+        </label>
+
+        <%= select_tag(:flavor_id, options_from_collection_for_select(Flavor.all, :id, :name, @product.flavor_id), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for delivery_id -->
+      <div class="form-group">
+        <label for="delivery_id" class="control-label">
+          Delivery Type
+        </label>
+
+        <%= select_tag(:delivery_id, options_from_collection_for_select(Delivery.all, :id, :name, @product.delivery_id), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-warning">
+        Update Product
+      </button>
+      or
+      <a href="/products/<%= @product.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

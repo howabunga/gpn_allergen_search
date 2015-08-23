@@ -1,0 +1,40 @@
+<div class="page-header">
+  <h3><%= @product.brand.name %>'s <%= @product.name %> - <%= @product.flavor.name %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+      <dt>Image</dt>
+      <dd><img src= "<%= @product.image %>" width = "300"></dd>
+
+      <dt>Name</dt>
+      <dd><%= @product.name %></dd>
+
+      <dt>Brand</dt>
+      <dd><%= @product.brand.name %></dd>
+
+      <dt>Flavor</dt>
+      <dd><%= @product.flavor.name %></dd>
+
+      <dt>Delivery Type</dt>
+      <dd><%= @product.delivery.name %></dd>
+
+<!-- add allergen profile -->
+
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/products" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/products/<%= @product.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_product/<%= @product.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
